@@ -1,0 +1,190 @@
+{
+    "chilled water loops": {
+        "chilled water loop": {
+            "supply temperature": {
+                "CHILLED WATER LOOP SUPPLY OUTLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "return temperature": {
+                "CHILLED WATER LOOP SUPPLY INLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "supply flow rate": {
+                "CHILLED WATER LOOP SUPPLY OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "return flow rate": {
+                "CHILLED WATER LOOP SUPPLY INLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            }
+        }
+    },
+    "condenser water loops": {
+        "condenser water loop": {
+            "supply temperature": {
+                "CONDENSER WATER LOOP SUPPLY OUTLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "return temperature": {
+                "CONDENSER WATER LOOP SUPPLY INLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "supply flow rate": {
+                "CONDENSER WATER LOOP SUPPLY OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "return flow rate": {
+                "CONDENSER WATER LOOP SUPPLY INLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            }
+        }
+    },
+    "zones": {
+        "Data Hall GF": {
+            "air temperature": {
+                "DATA HALL GF:Zone Air Temperature [C](TimeStep)": []
+            },
+            "air relative humidity": {
+                "DATA HALL GF:Zone Air Relative Humidity [%](TimeStep)": []
+            },
+            "ite power": {
+                "DATA HALL GF:Zone ITE CPU Electricity Rate [W](TimeStep)": []
+            }
+        }
+    },
+    "ites": {
+        "Data Hall GF ite-1": {
+            "inlet dry-bulb temperature": {
+                "DATA HALL GF ITE-1:ITE Air Inlet Dry-Bulb Temperature [C](TimeStep)": []
+            },
+            "inlet relative humidity": {
+                "DATA HALL GF ITE-1:ITE Air Inlet Relative Humidity [%](TimeStep)": []
+            },
+            "cpu power": {
+                "DATA HALL GF ITE-1:ITE CPU Electricity Rate [W](TimeStep)": []
+            },
+            "fan power": {
+                "DATA HALL GF ITE-1:ITE Fan Electricity Rate [W](TimeStep)": []
+            },
+            "ups power": {
+                "DATA HALL GF ITE-1:ITE UPS Electricity Rate [W](TimeStep)": []
+            }
+        }
+    },
+    "acus": {
+        "Data Hall GF ACU": {
+            "fan": {
+                "air mass flow rate": {
+                    "DATA HALL GF ACU AIR LOOP SUPPLY OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+                },
+                "outlet air temperature": {
+                    "DATA HALL GF ACU AIR LOOP SUPPLY OUTLET NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "power": {
+                    "DATA HALL GF ACU FAN:Fan Electricity Rate [W](TimeStep)": []
+                },
+                "inlet air temperature": {
+                    "DATA HALL GF ACU COOLING COIL AIR OUTLET NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "outlet air relative humidity": {
+                    "DATA HALL GF ACU AIR LOOP SUPPLY OUTLET NODE:System Node Relative Humidity [%](TimeStep)": []
+                },
+                "inlet air relative humidity": {
+                    "DATA HALL GF ACU COOLING COIL AIR OUTLET NODE:System Node Relative Humidity [%](TimeStep)": []
+                }
+            },
+            "cooling coil": {
+                "inlet air temperature": {
+                    "DATA HALL GF ACU OUTDOOR AIR SYSTEM MIXED AIR NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "air mass flow rate": {
+                    "DATA HALL GF ACU OUTDOOR AIR SYSTEM MIXED AIR NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+                },
+                "outlet air temperature": {
+                    "DATA HALL GF ACU COOLING COIL AIR OUTLET NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "inlet water temperature": {
+                    "DATA HALL GF ACU WATER INLET NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "outlet water temperature": {
+                    "DATA HALL GF ACU WATER OUTLET NODE:System Node Temperature [C](TimeStep)": []
+                },
+                "water mass flow rate": {
+                    "DATA HALL GF ACU WATER INLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+                },
+                "cooling load": {
+                    "DATA HALL GF ACU COOLING COIL:Cooling Coil Sensible Cooling Rate [W](TimeStep)": []
+                }
+            }
+        }
+    },
+    "dehumidifiers": {},
+    "chilled water pumps": {
+        "CHWP": {
+            "mass flow rate": {
+                "CHILLED WATER LOOP SUPPLY OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "power": {
+                "CHWP:Pump Electricity Rate [W](TimeStep)": []
+            }
+        }
+    },
+    "chillers": {
+        "CH-1F-01": {
+            "cooling load": {
+                "CH-1F-01:Chiller Evaporator Cooling Rate [W](TimeStep)": []
+            },
+            "chilled water supply temperature": {
+                "CH-1F-01:Chiller Evaporator Outlet Temperature [C](TimeStep)": []
+            },
+            "chilled water return temperature": {
+                "CH-1F-01:Chiller Evaporator Inlet Temperature [C](TimeStep)": []
+            },
+            "chilled water mass flow rate": {
+                "CH-1F-01:Chiller Evaporator Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "condenser water return temperature": {
+                "CH-1F-01:Chiller Condenser Outlet Temperature [C](TimeStep)": []
+            },
+            "condenser water supply temperature": {
+                "CH-1F-01:Chiller Condenser Inlet Temperature [C](TimeStep)": []
+            },
+            "condenser water mass flow rate": {
+                "CH-1F-01:Chiller Condenser Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "power": {
+                "CH-1F-01:Chiller Electricity Rate [W](TimeStep)": []
+            },
+            "mass flow rate": {
+                "CH-1F-01 CHILLED WATER OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            }
+        }
+    },
+    "heat_exchangers": {},
+    "condenser water pumps": {
+        "CWP": {
+            "mass flow rate": {
+                "CONDENSER WATER LOOP SUPPLY OUTLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "power": {
+                "CWP:Pump Electricity Rate [W](TimeStep)": []
+            }
+        }
+    },
+    "cooling towers": {
+        "CT-01": {
+            "return water temperature": {
+                "CT-01 INLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "water mass flow rate": {
+                "CT-01 INLET NODE:System Node Mass Flow Rate [kg/s](TimeStep)": []
+            },
+            "supply water temperature": {
+                "CT-01 OUTLET NODE:System Node Temperature [C](TimeStep)": []
+            },
+            "air flow rate ratio": {
+                "CT-01:Cooling Tower Air Flow Rate Ratio [](TimeStep)": []
+            },
+            "outside air wetbulb temperature": {
+                "Environment:Site Outdoor Air Wetbulb Temperature [C](TimeStep)": []
+            },
+            "power": {
+                "CT-01:Cooling Tower Fan Electricity Rate [W](TimeStep)": []
+            }
+        }
+    },
+    "secondary chilled water pumps": {},
+    "thermal storage tanks": {}
+}

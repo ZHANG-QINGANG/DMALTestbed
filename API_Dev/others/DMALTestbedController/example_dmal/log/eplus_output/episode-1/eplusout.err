@@ -1,0 +1,104 @@
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f (No OpenGL), YMD=2024.09.11 07:23,
+   ************* Beginning Zone Sizing Calculations
+   ** Severe  ** BuildingSurface:Detailed="DATA HALL GF CEILING", invalid Outside Boundary Condition Object=<blank>.
+   **   ~~~   ** ..Outside Boundary Condition="Surface" must be non-blank.
+   **   ~~~   ** ..This surface will become an adiabatic surface - no doors/windows allowed.
+   ** Warning ** CheckUsedConstructions: There are 1 nominally unused constructions in input.
+   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Warning ** Calculated design heating load for zone=DATA HALL GF is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = DATA HALL GF
+   **   ~~~   ** ...design sensible cooling load = 7431.87 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 23.000 C
+   **   ~~~   ** ...supply air temperature       = 21.000 C
+   **   ~~~   ** ...temperature difference       = -2.00000 C
+   **   ~~~   ** ...calculated volume flow rate  = 3.03440 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 3.64743 kg/s
+   ************* Beginning System Sizing Calculations
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = DATA HALL GF AIR TERMINAL UNIT 1
+   ** Warning ** HVACControllers: GetControllerInput: Controller:WaterCoil="DATA HALL GF ACU CONTROLLER". 
+   **   ~~~   **  ..Sensor node not found on water coil air outlet node.
+   **   ~~~   **  ..The sensor node may have been placed on a node downstream of the coil or on an airloop outlet node.
+   ** Warning ** ManageSizing: Calculated Heating Design Air Flow Rate for System=DATA HALL GF ACU AIR LOOP is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ************* Beginning Plant Sizing Calculations
+   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DATA HALL GF ACU COOLING COIL
+   **   ~~~   ** no apparatus dew-point can be found for the initial entering and leaving conditions;
+   **   ~~~   ** the coil outlet design conditions will be changed to correct the problem.
+   **   ~~~   ** The initial design conditions are: Tair,in = 25.0000
+   **   ~~~   **                                    Wair,in = 1.905085E-002
+   **   ~~~   **                                    Twater,in = 11.0000
+   **   ~~~   **                                    Tair,out = 18.0000
+   **   ~~~   **                                    Wair,out = 8.500000E-003
+   **   ~~~   ** The revised design conditions are: Tair,out = 15.1211
+   **   ~~~   **                                    Wair,out = 9.661814E-003
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Tower range temperature is outside model boundaries at -0.16.
+   **   ~~~   **  ...Valid range = 1.11 to 22.22. Occurrence info = WINTERSEASONDAY, 09/01 00:00 - 00:15
+   **   ~~~   **  ...Tower range temperature passed to the model = -0.16224
+   **   ~~~   **  ...Range temperatures outside model boundaries may not adversely affect tower performance.
+   **   ~~~   **  ...This is not an unexpected occurrence when simulating actual conditions.
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is outside model boundaries at 26.74.
+   **   ~~~   **  ...Valid range = -34.40 to 26.67. Occurrence info = WINTERSEASONDAY, 09/01 08:45 - 09:00
+   **   ~~~   **  ...Inlet air wet-bulb temperature passed to the model = 26.666700
+   **   ~~~   **  ...Wet-bulb temperatures outside model boundaries may not adversely affect tower performance.
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is outside model boundaries at 26.98.
+   **   ~~~   **  ...Valid range = -34.40 to 26.67. Occurrence info = WINTERSEASONDAY, 09/01 09:00 - 09:15
+   **   ~~~   **  ...Inlet air wet-bulb temperature passed to the model = 26.666700
+   **   ~~~   **  ...Wet-bulb temperatures outside model boundaries may not adversely affect tower performance.
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is outside model boundaries at 27.22.
+   **   ~~~   **  ...Valid range = -34.40 to 26.67. Occurrence info = WINTERSEASONDAY, 09/01 09:15 - 09:30
+   **   ~~~   **  ...Inlet air wet-bulb temperature passed to the model = 26.666700
+   **   ~~~   **  ...Wet-bulb temperatures outside model boundaries may not adversely affect tower performance.
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is outside model boundaries at 27.46.
+   **   ~~~   **  ...Valid range = -34.40 to 26.67. Occurrence info = WINTERSEASONDAY, 09/01 09:30 - 09:45
+   **   ~~~   **  ...Inlet air wet-bulb temperature passed to the model = 26.666700
+   **   ~~~   **  ...Wet-bulb temperatures outside model boundaries may not adversely affect tower performance.
+   ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is outside model boundaries at 27.70.
+   **   ~~~   **  ...Valid range = -34.40 to 26.67. Occurrence info = WINTERSEASONDAY, 09/01 09:45 - 10:00
+   **   ~~~   **  ...Inlet air wet-bulb temperature passed to the model = 26.666700
+   **   ~~~   **  ...Wet-bulb temperatures outside model boundaries may not adversely affect tower performance.
+   ** Severe  ** ExternalInterface: Received end of simulation flag at time = 24.00 hours.
+   ************* Simulation Error Summary *************
+   ************* There are 2 unused schedules in input.
+   ************* There are 1 unused week schedules in input.
+   ************* There are 1 unused day schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   *************
+   ************* ===== Recurring Error Summary =====
+   ************* The following recurring error messages occurred.
+   *************
+   *************  ** Warning ** CoolingTower:VariableSpeed "CT-01" - Tower range temperature is out of range error continues...
+   *************  **   ~~~   **   This error occurred 94 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=0.445085  Min=-1.802169
+   *************
+   *************  ** Warning ** CoolingTower:VariableSpeed "CT-01" - Inlet air wet-bulb temperature is out of range error continues...
+   *************  **   ~~~   **   This error occurred 1 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=27.128038  Min=27.128038
+   *************
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 5 Warning; 2 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 107 Warning; 3 Severe Errors; Elapsed Time=00hr 00min  1.25sec

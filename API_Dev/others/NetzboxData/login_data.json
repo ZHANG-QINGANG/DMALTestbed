@@ -1,0 +1,16 @@
+{
+  "id": "user-49",
+  "username": "ang",
+  "password": null,
+  "isAdmin": true,
+  "isSuperUser": false,
+  "rootExpired": false,
+  "settings": {
+    "id": null,
+    "locale": "en_US",
+    "imperial": false,
+    "time24": false,
+    "autoScale": true
+  },
+  "pseAckTimestamp": null
+}

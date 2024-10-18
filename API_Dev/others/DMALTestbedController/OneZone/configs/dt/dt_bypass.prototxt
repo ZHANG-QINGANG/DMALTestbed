@@ -1,0 +1,455 @@
+eplus_env_config {
+  weather_file: "data/weather/SGP_Singapore.486980_IWEC.epw"
+  model_file: "models/idf/example_bypass.idf"
+  simulation_time_config {
+    begin_month: 11
+    begin_day_of_month: 1
+    end_month: 11
+    end_day_of_month: 7
+    number_of_timesteps_per_hour: 4
+  }
+  actions {
+    control_type: PRE_SCHEDULED
+    input_source: "data/schedule/workloads/Alibaba_15min_interval.json"
+    variable_name: "data hall 1a ite-1 cpu loading schedule"
+    schedule_config {
+      initial_value: 1.0
+      lb: 0.0
+      ub: 1.0
+      schedule_type: ITE
+      scheduled_ite_equipment_name: "data hall 1a ite-1"
+    }
+  }
+  actions {
+    control_type: AGENT_CONTROLLED
+    variable_name: "data_hall_1a_acu_1_supply_air_temperature_setpoint"
+    actuator_config {
+      actuated_component_unique_name: "data hall 1a acu-1 air loop supply air temperature schedule"
+      actuated_component_type: Schedule_Constant
+      actuated_component_control_type: Schedule_Value
+    }
+    normalize_config {
+      method: LINEAR
+      lb: 20.0
+      ub: 26.0
+    }
+  }
+  actions {
+    control_type: AGENT_CONTROLLED
+    variable_name: "chilled_water_loop_supply_temperature_setpoint"
+    actuator_config {
+      actuated_component_unique_name: "chilled water loop exit temperature setpoint schedule"
+      actuated_component_type: Schedule_Constant
+      actuated_component_control_type: Schedule_Value
+    }
+    normalize_config {
+      method: LINEAR
+      lb: 12.0
+      ub: 18.0
+    }
+  }
+  actions {
+    control_type: ACTUATOR_PRE_SCHEDULED
+    input_source: "data/schedule/pumps/chiller 1 primary chwp.json"
+    variable_name: "chiller_1_primary_chwp_mass_flow_rate"
+    actuator_config {
+      actuated_component_unique_name: "chiller 1 primary chwp"
+      actuated_component_type: PUMP
+      actuated_component_control_type: Pump_Mass_Flow_Rate
+    }
+    normalize_config {
+      method: LINEAR
+      lb: 0.0
+      ub: 30.0
+    }
+  }
+  actions {
+    control_type: ACTUATOR_PRE_SCHEDULED
+    input_source: "data/schedule/pumps/chiller 1 secondary chwp.json"
+    variable_name: "chiller_1_secondary_chwp_mass_flow_rate"
+    actuator_config {
+      actuated_component_unique_name: "chiller 1 secondary chwp"
+      actuated_component_type: PUMP
+      actuated_component_control_type: Pump_Mass_Flow_Rate
+    }
+    normalize_config {
+      method: LINEAR
+      lb: 0.0
+      ub: 30.0
+    }
+  }
+  use_unnormed_act: true
+  observations {
+    exposed: false
+    variable_name: "data hall 1a ite-1 inlet dry-bulb temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ITE-1"
+      variable_name: "ITE Air Inlet Dry-Bulb Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a ite-1 inlet relative humidity"
+    output_variable_config {
+      key_value: "DATA HALL 1A ITE-1"
+      variable_name: "ITE Air Inlet Relative Humidity"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: true
+    variable_name: "data hall 1a ite-1 cpu loading schedule"
+    normalize_config {
+      method: LINEAR
+      lb: 0.0
+      ub: 1.0
+    }
+    observation_type: EXTERNAL
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 fan power consumption"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 FAN"
+      variable_name: "Fan Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 fan air mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 AIR LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 fan outlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 AIR LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 fan inlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 COOLING COIL AIR OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil inlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 OUTDOOR AIR SYSTEM MIXED AIR NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil air mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 OUTDOOR AIR SYSTEM MIXED AIR NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil outlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 COOLING COIL AIR OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil inlet water temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 WATER INLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil outlet water temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 WATER OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil water mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 WATER INLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a acu-1 cooling coil cooling load"
+    output_variable_config {
+      key_value: "DATA HALL 1A ACU-1 COOLING COIL"
+      variable_name: "Cooling Coil Sensible Cooling Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 primary chwp mass flow rate"
+    output_variable_config {
+      key_value: "CHILLER 1 PRIMARY CHWP OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 primary chwp power consumption"
+    output_variable_config {
+      key_value: "CHILLER 1 PRIMARY CHWP"
+      variable_name: "Pump Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 secondary chwp mass flow rate"
+    output_variable_config {
+      key_value: "CHILLER 1 SECONDARY CHWP OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 secondary chwp power consumption"
+    output_variable_config {
+      key_value: "CHILLER 1 SECONDARY CHWP"
+      variable_name: "Pump Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 cwp mass flow rate"
+    output_variable_config {
+      key_value: "COOLING TOWER 1 CWP OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 cwp power consumption"
+    output_variable_config {
+      key_value: "COOLING TOWER 1 CWP"
+      variable_name: "Pump Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 cooling load"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Evaporator Cooling Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 evaporator mass flow rate"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Evaporator Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 chilled water supply temperature"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Evaporator Outlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 chilled water return temperature"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Evaporator Inlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 chilled water mass flow rate"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Condenser Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 condenser water supply temperature"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Condenser Inlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 condenser water return temperature"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Condenser Outlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 condenser water mass flow rate"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Condenser Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chiller 1 power consumption"
+    output_variable_config {
+      key_value: "CHILLER 1"
+      variable_name: "Chiller Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 return water temperature"
+    output_variable_config {
+      key_value: "COOLING TOWER 1 CWP OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 water mass flow rate"
+    output_variable_config {
+      key_value: "COOLING TOWER 1 CWP OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 supply water temperature"
+    output_variable_config {
+      key_value: "COOLING TOWER 1 OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 air flow rate ratio"
+    output_variable_config {
+      key_value: "COOLING TOWER 1"
+      variable_name: "Cooling Tower Air Flow Rate Ratio"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cooling tower 1 fan power consumption"
+    output_variable_config {
+      key_value: "COOLING TOWER 1"
+      variable_name: "Cooling Tower Fan Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a air temperature"
+    output_variable_config {
+      key_value: "DATA HALL 1A"
+      variable_name: "Zone Air Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a air relative humidity"
+    output_variable_config {
+      key_value: "DATA HALL 1A"
+      variable_name: "Zone Air Relative Humidity"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall 1a air relative humidity"
+    output_variable_config {
+      key_value: "DATA HALL 1A"
+      variable_name: "Zone Air Humidity Ratio"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "site outdoor air drybulb temperature"
+    output_variable_config {
+      key_value: "Environment"
+      variable_name: "Site Outdoor Air Drybulb Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "site outdoor air wetbulb temperature"
+    output_variable_config {
+      key_value: "Environment"
+      variable_name: "Site Outdoor Air Wetbulb Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "site wind speed"
+    output_variable_config {
+      key_value: "Environment"
+      variable_name: "Site Wind Speed"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "bypass water mass flow rate"
+    output_variable_config {
+      key_value: "Bypass Pipe Inlet Node"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  use_unnormed_obs: false
+  host: "host.docker.internal"
+  network: "host"
+}

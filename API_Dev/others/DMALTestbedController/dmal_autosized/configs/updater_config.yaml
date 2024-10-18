@@ -1,0 +1,69 @@
+# available optimizers
+#   Single Objective Optimization:
+#        Augmented Artificial Ecosystem Optimization (AAEO),
+#        Brown-Bear Optimization Algorithm (BBOA),
+#        Cross-Entropy Method (CEM),
+#        Differential Evolution (DE),
+#        Adaptive Equilibrium Optimization (AEO),
+#        Gradient-Based Optimizer (GBO),
+#        Gaining Sharing Knowledge-based Algorithm (GSKA),
+#        Phasor Particle Swarm Optimization (P-PSO)
+
+# available loss functions
+#     Coefficient of the Variation of the Root Mean Square Error (CV-RMSE)
+
+
+# please check existing files for initialization (mandatory)
+building_json_path: "models/building/building.json"  # path to load model's json file
+his_data_path: "data/datasets/his_data.csv"  # path to load historical data
+weather_data: "data/weather/SGP_Singapore.486980_IWEC.epw" # path to load weather data
+
+# please define the control actions (mandatory)
+control_action: [[-1, 1]] # external control action, default [] if not available
+eplus_socket_timeout: 5
+
+# manually defined parameters. path: [key, field name, coefficient name]. Default: {}
+#manu_param: {"param_0": {"path": [["PLANTLOOP", "condenser water loop", "Load_Distribution_Scheme"]], "value": ["SequentialUniformPLR"]},
+#             "param_1": {"path": [["PLANTLOOP", "chilled water loop", "Load_Distribution_Scheme"]], "value": ["SequentialLoad"]}}
+manu_param: {}
+
+# please define the type of calibration. "detail": calibrate all available model parameters. "clean":
+# only calibrate equipment that has provided historical data. "specified": customize equipment that should be calibrated.
+calib_type: "clean" # ["detail", "clean", "specified"] default：clean
+
+# specified_equip is necessary if the calib type is "specified". All related equipment should be
+# specified here if there are group features.
+specified_equip: ["acu_1", "acu_2", "acu_3", "chiller-1", "chiller-2"]
+
+# define features that should be summed first to calculate loss. default: {}
+group_feature: {"chillers": "power"}
+
+# multi-stage calibration: cooling load -> air loop -> chwp loop -> cwp loop. Default: true
+multi_loops: false
+
+# please define paths to save configurations (default)
+engine_config: "configs/eplus.prototxt"  # path to load DCTwin configuration
+idd_path: "configs/V9-5-0-Energy+.idd"  # path to load E+ idd file
+idf_path_original: "models/building/building_original.idf" # path to save the original idf file with default parameters
+idf_path_run: "models/building/building_run.idf" # path to load idf file to run the simulation
+device_his_map: "models/building/device_his_map.json"
+device_key_map: "models/building/device_key_map.json"
+sim_data_path: "log/eplus_output/episode-1/eplusout.csv"  # path to load simulated data
+extract_param_path: "models/building/extract_param_path.json"
+
+# please define optimizer-related parameters (optional)
+optimizer: "DEVICE"  # please check available optimizers above
+loss_type: "CV-RMSE"  # default cv-rmse
+feature_norm: false  # default false
+epoch: 40  # maximum epoch, if any. Default 40
+pop_size: 50  # pop_size, if any. Default 50
+max_early_stop: 4 # maximum epoches to stop if no improvement
+epsilon: 0.1 # tolerance to count early stopping
+
+# sensitivity analysis (optional)
+sensitivity_analysis: false  # if conduct sensitivity analysis
+target_proportion: 0.5  # The target proportion of useful parameters
+
+# unique parameters (optional)
+objective_weight: "uniform"  # if using moo, else ignore
+sur_type: "gpr"  # if surrogate model is used, else ignore. "mlp", "gpr", "penn"

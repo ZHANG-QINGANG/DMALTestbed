@@ -1,0 +1,57 @@
+
+  simulation_time_config {
+    begin_month: 11
+    begin_day_of_month: 1
+    end_month: 11
+    end_day_of_month: 7
+    number_of_timesteps_per_hour: 4
+  }
+  actions {
+    requires_grad: false
+    control_variable: CPU_Utilization
+    device_unique_key: "Data Hall 1A ite-1"
+    variable_name: "Data Hall 1A ite-1 cpu loading schedule"
+  }
+  actions {
+    requires_grad: false
+    control_variable: On_Off_Supervisory
+    device_unique_key: "Data Hall 1A acu-1"
+    variable_name: "data hall 1f 2a acu-1 on off schedule"
+  }
+  actions {
+    requires_grad: true
+    control_variable: Temperature_Setpoint
+    device_unique_key: "Data Hall 1A acu-1"
+    variable_name: "data_hall_1a_acu_1_supply_air_temperature_setpoint"
+  }
+  actions {
+    requires_grad: true
+    control_variable: Fan_Air_Mass_Flow_Rate
+    device_unique_key: "Data Hall 1A acu-1"
+    variable_name: "data_hall_1a_acu_1_supply_air_temperature_setpoint"
+  }
+  actions {
+    requires_grad: true
+    control_variable: Temperature_Setpoint
+    device_unique_key: "chiller 1 condenser water loop"
+    variable_name: "condensed water loop exit temperature setpoint"
+  }
+  actions {
+    requires_grad: true
+    control_variable: Temperature_Setpoint
+    device_unique_key: "chilled water loop"
+    variable_name: "chilled water loop exit temperature setpoint"
+  }
+  observations {
+    observation_node: inlet
+    observation_type: Temperature
+    device_unique_key: "Data Hall 1A ite-1"
+    variable_name: "data_hall_1a_ite_1_supply_air_temperature"
+  }
+  observations {
+    observation_node: self
+    observation_type: Power
+    device_unique_key: "chiller 1"
+    variable_name: "chiller_1_power_consumption"
+  }
+

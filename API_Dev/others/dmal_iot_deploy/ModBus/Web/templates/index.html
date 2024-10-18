@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="30;url=#">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
+            <li><a href="/logout"><h4 class="text-primary">Logout</h4></a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" style="width: 1400px">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-3"><h2 style="padding-top:25px;">{{ registers.time }}</h2>
+        </div>
+        <div class="col-md-7">
+            <div class="text-left"><h4>Real-time Readings</h4></div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>room_temperature_setpoint:</strong></h5></span>
+                </div>
+                <div class="col-md-2 text-left"><h5>{{ registers.room_temperature_setpoint }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>off_coil_temperature:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.off_coil_temperature }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>room_temperature_1:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.room_temperature_1 }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>chwr_temperature:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.chwr_temperature }}</h5></div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>room_temperature_2:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.room_temperature_2 }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>chws_temperature:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.chws_temperature }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>room_humidity_1:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.room_humidity_1 }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>water_leakage_status:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.water_leakage_status }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>room_humidity_2:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.room_humidity_2 }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>chw_valve_cmd:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.chw_valve_cmd }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>bms_local:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.bms_local }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>chw_valve_position:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.chw_valve_position }}</h5></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_ss_cmd:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_ss_cmd }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>chw_flow_rate:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.chw_flow_rate }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_trip:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_trip }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>U:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.U }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_status:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_status }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>I:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.I }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_low_speed:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_low_speed }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>PF:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.PF }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_med_speed:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_med_speed }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>W:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.W }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_high_speed:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_high_speed }}</h5></div>
+                <div class="col-md-4 text-left"><span><h5><strong>KWH:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.KWH }}</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-left"><span><h5><strong>fcu_airflow_rate:</strong></h5></span></div>
+                <div class="col-md-2 text-left"><h5>{{ registers.fcu_airflow_rate }}</h5></div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="text-left"><h4>Control Handlers</h4></div>
+            <form class="form-horizontal" action="/home" method="post">
+                <div class="form-group">
+                    <label for="room_temperature_setpoint"
+                           class="col-md-5 control-label">room_temperature_setpoint</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name='room_temperature_setpoint' type="text"
+                               placeholder="eg: 23.1" value={{ registers.room_temperature_setpoint }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="valve_ovr_flag" class="col-md-5 control-label">valve_ovr_flag</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="valve_ovr_flag" type="text"
+                               placeholder="0: Auto, 1: Override" value={{ registers.valve_ovr_flag }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="valve_ovr_cmd" class="col-md-5 control-label">valve_ovr_cmd</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="valve_ovr_cmd" type="text"
+                               placeholder="0~100%" value={{ registers.valve_ovr_cmd }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fcu_ss_ovr_flag" class="col-md-5 control-label">fcu_ss_ovr_flag</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="fcu_ss_ovr_flag" type="text"
+                               placeholder="0: Auto, 1: Override" value={{ registers.fcu_ss_ovr_flag }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fcu_ss_ovr_cmd" class="col-md-5 control-label">fcu_ss_ovr_cmd</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="fcu_ss_ovr_cmd" type="text"
+                               placeholder="0: Stop, 1: Start" value={{ registers.fcu_ss_ovr_cmd }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fcu_speed_ovr_flag" class="col-md-5 control-label">fcu_speed_ovr_flag</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="fcu_speed_ovr_flag" type="text"
+                               placeholder="0: Auto, 1: Override" value={{ registers.fcu_speed_ovr_flag }}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fcu_speed_ovr_cmd" class="col-md-5 control-label">fcu_speed_ovr_cmd</label>
+                    <div class="col-md-4">
+                        <input class="form-control" name="fcu_speed_ovr_cmd" type="text"
+                               placeholder="1: Low, 2: Med, 3: High" value={{ registers.fcu_speed_ovr_cmd }}>
+                    </div>
+                </div>
+                {# <input type="submit" class="btn btn-primary  ">Save</input>#}
+                <div class="col-md-offset-5  col-md-2 text-right">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <!--    <div class="row">-->
+    <!--        <div class="col-md-9 col-md-offset-3">-->
+
+    <!--        </div>-->
+    <!--    </div>-->
+</div>
+<hr>
+<p class="text-right col-md-2 col-md-offset-7">copy right</p>
+{% block javascript %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+
+一、配置
+main.py
+数据库的IP、用户名、密码
+MYSQL_HOST = 'xxxxxx'
+MYSQL_USERNAME = 'xxxxxx'
+MYSQL_PASSWORD = 'xxxxxx'
+
+ModeBus服务器的信息
+MODBUS_TCP_SERVER = 'xxxxxx'
+MODBUS_TCP_PORT = 'xxxxxx'
+
+二、运行
+docker开机期自动 Web、Grafana
+
+
+三、data_format 参数格式详情：
+    Format	c Type	Python	Note
+    x	pad byte	no value
+    c	char	string of length 1
+    b	signedchar	integer
+    B	unsignedchar	integer
+    ?	_Bool	bool	(1)
+    h	short	integer
+    H	unsignedshort	integer
+    i	int	integer
+    I	unsignedint	integer or long
+    l	long	integer
+    L	unsignedlong	long
+    q	longlong	long	(2)
+    Q	unsignedlonglong	long	(2)
+    f	float	float
+    d	double	float
+    s	char[]	string
+    p	char[]	string
+    P	void*	long
+
+    =	native	standard
+    <	little-endian	standard
+    >	big-endian	standard
+    !	network (= big-endian)	standard

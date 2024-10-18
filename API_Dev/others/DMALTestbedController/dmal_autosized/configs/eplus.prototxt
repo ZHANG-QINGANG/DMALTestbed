@@ -1,0 +1,358 @@
+eplus_env_config {
+  weather_file: "data/weather/SGP_Singapore.486980_IWEC.epw"
+  model_file: "models/building/building_run.idf"
+  simulation_time_config {
+    begin_month: 9
+    begin_day_of_month: 1
+    end_month: 9
+    end_day_of_month: 1
+    number_of_timesteps_per_hour: 4
+  }
+  actions {
+    control_type: PRE_SCHEDULED
+    input_source: "data/schedule/workloads/data hall gf ite-1.json"
+    variable_name: "data hall gf ite-1 cpu loading schedule"
+    schedule_config {
+      initial_value: 1.0
+      lb: 0.0
+      ub: 1.0
+      schedule_type: ITE
+      scheduled_ite_equipment_name: "data hall gf ite-1"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chilled water loop supply temperature"
+    output_variable_config {
+      key_value: "CHILLED WATER LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chilled water loop return temperature"
+    output_variable_config {
+      key_value: "CHILLED WATER LOOP SUPPLY INLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chilled water loop supply flow rate"
+    output_variable_config {
+      key_value: "CHILLED WATER LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chilled water loop return flow rate"
+    output_variable_config {
+      key_value: "CHILLED WATER LOOP SUPPLY INLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu fan power consumption"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU FAN"
+      variable_name: "Fan Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu fan air mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU AIR LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu fan outlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU AIR LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu fan inlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU COOLING COIL AIR OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil inlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU OUTDOOR AIR SYSTEM MIXED AIR NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil air mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU OUTDOOR AIR SYSTEM MIXED AIR NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil outlet air temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU COOLING COIL AIR OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil inlet water temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU WATER INLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil outlet water temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU WATER OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil water mass flow rate"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU WATER INLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf acu cooling coil cooling load"
+    output_variable_config {
+      key_value: "DATA HALL GF ACU COOLING COIL"
+      variable_name: "Cooling Coil Sensible Cooling Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chwp mass flow rate"
+    output_variable_config {
+      key_value: "CHILLED WATER LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "chwp power consumption"
+    output_variable_config {
+      key_value: "CHWP"
+      variable_name: "Pump Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cwp mass flow rate"
+    output_variable_config {
+      key_value: "CONDENSER WATER LOOP SUPPLY OUTLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "cwp power consumption"
+    output_variable_config {
+      key_value: "CWP"
+      variable_name: "Pump Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 cooling load"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Evaporator Cooling Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 evaporator mass flow rate"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Evaporator Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 chilled water supply temperature"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Evaporator Outlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 chilled water return temperature"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Evaporator Inlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 chilled water mass flow rate"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Condenser Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 condenser water supply temperature"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Condenser Inlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 condenser water return temperature"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Condenser Outlet Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 condenser water mass flow rate"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Condenser Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ch-1f-01 power consumption"
+    output_variable_config {
+      key_value: "CH-1F-01"
+      variable_name: "Chiller Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ct-01 return water temperature"
+    output_variable_config {
+      key_value: "CT-01 INLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ct-01 water mass flow rate"
+    output_variable_config {
+      key_value: "CT-01 INLET NODE"
+      variable_name: "System Node Mass Flow Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ct-01 supply water temperature"
+    output_variable_config {
+      key_value: "CT-01 OUTLET NODE"
+      variable_name: "System Node Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ct-01 air flow rate ratio"
+    output_variable_config {
+      key_value: "CT-01"
+      variable_name: "Cooling Tower Air Flow Rate Ratio"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "ct-01 fan power consumption"
+    output_variable_config {
+      key_value: "CT-01"
+      variable_name: "Cooling Tower Fan Electricity Rate"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf air temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF"
+      variable_name: "Zone Air Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf air relative humidity"
+    output_variable_config {
+      key_value: "DATA HALL GF"
+      variable_name: "Zone Air Relative Humidity"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf ite-1 inlet dry-bulb temperature"
+    output_variable_config {
+      key_value: "DATA HALL GF ITE-1"
+      variable_name: "ITE Air Inlet Dry-Bulb Temperature"
+      reporting_frequency: "timestep"
+    }
+  }
+  observations {
+    exposed: false
+    variable_name: "data hall gf ite-1 inlet relative humidity"
+    output_variable_config {
+      key_value: "DATA HALL GF ITE-1"
+      variable_name: "ITE Air Inlet Relative Humidity"
+      reporting_frequency: "timestep"
+    }
+  }
+  host: "host.docker.internal"
+  network: "host"
+}
